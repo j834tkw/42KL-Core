@@ -45,7 +45,7 @@ int	check_non_number(char **str)
 	int	j;
 
 	i = 1;
-	while(str[i])
+	while (str[i])
 	{
 		j = 0;
 		while (ft_isspace(str[i][j]) || str[i][j] == '+' || str[i][j] == '-')

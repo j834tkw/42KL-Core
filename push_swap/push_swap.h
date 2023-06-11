@@ -7,6 +7,7 @@
 # include <stddef.h>
 # include <limits.h>
 # include <stdio.h>
+# include <ctype.h>
 
 typedef struct s_stack
 {
@@ -17,10 +18,13 @@ typedef struct s_stack
 	int	instruction_count;
 }	t_stack;
 
+// ft_atoi
+int		ft_check_atoi(const char *str, char **to_free, t_stack *to_free_2);
+
 // check
-int	check_sorted(t_stack *stack);
-int	check_duplicate(t_stack *stack);
-int	check_non_number(char **str);
+int		check_sorted(t_stack *stack);
+int		check_duplicate(t_stack *stack);
+int		check_non_number(char **str);
 
 // free_exit
 void	free_and_exit(t_stack *stack, int to_print);
@@ -29,14 +33,14 @@ void	free_and_exit_both(char **to_free, t_stack *to_free_2);
 // ft_split
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-int	ft_countwords(char const *s, char c);
+int		ft_countwords(char const *s, char c);
 size_t	ft_delimstrl(char const *s, char c);
 char	**ft_split(char const *s, char c);
 
 // get_args
-int	count_elements(char **arr);
+int		count_elements(char **arr);
 void	realloc_stack(t_stack *stack, char **to_add);
-int	ft_fill_data(t_stack *stack, int ac, char **av);
+int		ft_fill_data(t_stack *stack, int ac, char **av);
 
 //initialize
 void	ft_initialize_struct(t_stack *stack);
@@ -59,18 +63,18 @@ void	sb(t_stack *stack, int to_print);
 void	ss(t_stack *stack, int to_print);
 
 //main
-void ft_push_swap(t_stack *stack);
+void	ft_push_swap(t_stack *stack);
 
 //sort
 void	radix_sort(t_stack *stack);
 void	sort_2(t_stack *stack);
 void	sort_3(t_stack *stack);
+void	sort_4(t_stack *stack);
 void	sort_5(t_stack *stack);
 
 //utils
-int	ft_check_atoi(const char *str, char **to_free, t_stack *to_free_2);
 void	ft_swap(int *a, int *b);
-int	ft_isspace(char c);
-int	*ft_array_dup(int *arr, int size);
+int		ft_isspace(char c);
+int		*ft_array_dup(int *arr, int size);
 
 #endif

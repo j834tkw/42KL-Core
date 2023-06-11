@@ -2,10 +2,10 @@
 
 int	main(int ac, char **av)
 {
-	t_stack stack;
+	t_stack	stack;
 
-	if (ac < 2 || !check_non_number(av))
-		return (0);
+	if (ac < 2)
+		free_and_exit(&stack, 1);
 	ft_initialize_struct(&stack);
 	ft_fill_data(&stack, ac, av);
 	if (check_duplicate(&stack) == 0)
@@ -17,15 +17,17 @@ int	main(int ac, char **av)
 	return (0);
 }
 
-void ft_push_swap(t_stack *stack)
+void	ft_push_swap(t_stack *stack)
 {
 	index_stack(stack);
 	if (stack->size_a == 2)
 		sort_2(stack);
 	else if (stack->size_a == 3)
 		sort_3(stack);
-	else if (stack->size_a == 4 || stack->size_a == 5)
+	else if (stack->size_a == 4)
+		sort_4(stack);
+	else if (stack->size_a == 5)
 		sort_5(stack);
-	else if (stack->size_a > 5)
+	else
 		radix_sort(stack);
 }

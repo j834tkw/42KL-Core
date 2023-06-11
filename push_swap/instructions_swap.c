@@ -16,7 +16,7 @@ void	sb(t_stack *stack, int to_print)
 		return ;
 	ft_swap(&stack->stack_b[0], &stack->stack_b[1]);
 	if (to_print == 1)
-		write(1, "sa\n", 3);
+		write(1, "sb\n", 3);
 	stack->instruction_count++;
 }
 

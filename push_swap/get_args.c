@@ -10,57 +10,55 @@ int	count_elements(char **arr)
 	return (i);
 }
 
-// Mallocs new stack, copies data from old stack to new
-// Then copies splitted data to new stack
-void	realloc_stack(t_stack *stack, char **to_add)
+void ft_init_1_str(t_stack *stack, char **tmp)
 {
-	int	*new_stack_a;
 	int	i;
 	int	j;
-	int	new_size;
 
 	i = 0;
 	j = 0;
-	new_size = (count_elements(to_add) + stack->size_a);
-	new_stack_a = malloc(sizeof(int) * new_size);
-	while (i < stack->size_a)
+	stack->size_a = count_elements(tmp);
+	stack->stack_a = malloc(sizeof(int) * stack->size_a);
+	while (tmp[j])
 	{
-		new_stack_a[i] = stack->stack_a[i];
-		i++;
-	}
-	while (to_add[j])
-	{
-		new_stack_a[i] = ft_check_atoi(to_add[j], to_add, stack);
+		stack->stack_a[i] = ft_check_atoi(tmp[j], tmp, stack);
 		i++;
 		j++;
 	}
-	if (stack->stack_a)
-		free(stack->stack_a);
-	stack->stack_a = new_stack_a;
-	stack->size_a = new_size;
+	i = 0;
+	while (tmp[i])
+	{
+		free(tmp[i]);
+		i++;
+	}
+	free(tmp);
 }
 
-// malloc memory for stack_b
+void ft_init_more_str(t_stack *stack, char **av)
+{
+	int	i;
+
+	i = 1;
+	stack->size_a = count_elements(av) - 1;
+	stack->stack_a = malloc(sizeof(int) * stack->size_a);
+	while (av[i] != NULL)
+	{
+		stack->stack_a[i - 1] = ft_check_atoi(av[i], NULL, stack);
+		i++;
+	}
+}
+
 int	ft_fill_data(t_stack *stack, int ac, char **av)
 {
 	char	**tmp;
-	int		i;
-	int		i_free;
 
-	i = 1;
-	while (i < ac)
+	if (ac == 2)
 	{
-		tmp = ft_split(av[i], ' ');
-		realloc_stack(stack, tmp);
-		i_free = 0;
-		while (tmp[i_free])
-		{
-			free(tmp[i_free]);
-			i_free++;
-		}
-		free(tmp);
-		i++;
+		tmp = ft_split(av[1], ' ');
+		ft_init_1_str(stack, tmp);
 	}
+	else if (ac > 2)
+		ft_init_more_str(stack, av);
 	stack->stack_b = malloc(sizeof(int) * stack->size_a);
 	return (1);
 }

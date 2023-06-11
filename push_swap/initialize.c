@@ -11,12 +11,12 @@ void	ft_initialize_struct(t_stack *stack)
 
 void	insertion_sort(int *arr, int n)
 {
-    int	i;
+	int	i;
 	int	j;
 	int	tmp;
 
 	i = 1;
-    while (i < n)
+	while (i < n)
 	{
 		tmp = arr[i];
 		j = i - 1;
@@ -42,7 +42,7 @@ void	index_stack(t_stack *stack)
 	i = 0;
 	j = 0;
 	size = stack->size_a;
-	tmp = ft_array_dup(stack ->stack_a, size);
+	tmp = ft_array_dup(stack->stack_a, size);
 	insertion_sort(tmp, size);
 	while (i < size)
 	{

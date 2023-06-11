@@ -29,21 +29,37 @@ void	sort_3(t_stack *stack)
 	}
 }
 
-// if stack_a has 4 numbers, do not pb 2nd smallest number
-// Only do it if stack_a has 5 numbers
-void	sort_5(t_stack *stack)
+void	sort_4(t_stack *stack)
 {
-	int	original_size;
-
-	original_size = stack->size_a;
 	while (stack->size_a > 3)
 	{
-		if (stack->stack_a[0] == 0 || (original_size == 5 && stack->stack_a[0] == 1))
+		if (stack->stack_a[0] == 0)
 			pb(stack, 1);
 		else
 			ra(stack, 1);
 	}
 	if (stack->stack_b[0] < stack->stack_b[1])
+		sb(stack, 1);
+	sort_3(stack);
+	pa(stack, 1);
+}
+
+void	sort_5(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (i != 2)
+	{
+		if (stack->stack_a[0] == 0 || stack->stack_a[0] == 1)
+		{
+			pb(stack, 1);
+			i++;
+		}
+		else
+			ra(stack, 1);
+	}
+	if (stack->stack_b[0] == 0)
 		sb(stack, 1);
 	sort_3(stack);
 	pa(stack, 1);
