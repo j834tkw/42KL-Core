@@ -5,7 +5,7 @@ int		create_thread(t_data *data)
 	int	i;
 
 	i = 1;
-	while (i < data->philo_num)
+	while (i <= data->philo_num)
 	{
 		if (pthread_create(&data->philo[i], NULL, (void *)routine, (void *)data) != 0)
 			return (1);

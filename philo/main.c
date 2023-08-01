@@ -13,6 +13,7 @@ void	init_data(t_data *data, int ac, char **av)
 //		data->meals_num = ft_atoi(av[5]);
 //	else
 //		data->meals_num = -1;
+	data->id = 0;
 	data->start_time = get_time();
 //	data->is_alive_bool = 1;
 //	data->dead_num = 0;
