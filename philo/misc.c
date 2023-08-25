@@ -3,14 +3,21 @@
 void	check_data(t_data *data)
 {
 	if (data->philo_num < 0 || data->philo_num > 200)
-		print_exit("Invalid parameters\n");
+	{
+		printf("Invalid parameters\n");
+		exit(1);
+	}
 	return ;
 }
 
-void	print_exit(char *str)
+void	print_msg(t_data *data, char *msg, int id)
 {
-	printf("%s", str);
-	exit (1);
+	long int	time;
+
+	time = get_time() - data->start_time;
+	if (!strcmp("creation", msg))
+		printf("%ld Wow me is philo no.%d\n", time, id);
+	return ;
 }
 
 long int	get_time(void)

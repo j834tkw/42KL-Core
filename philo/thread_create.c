@@ -11,7 +11,7 @@ int		create_thread(t_data *data)
 			return (1);
 		usleep (100);
 		pthread_mutex_lock(&data->thread_lock);
-		printf("%d\n", i);
+//		printf("%d\n", i);
 		data->id = i;
 		i++;
 		pthread_mutex_unlock(&data->thread_lock);

@@ -45,7 +45,7 @@ typedef struct	s_data
 
 // misc
 void	check_data(t_data *data);
-void	print_exit(char *str);
+void	print_msg(t_data *data, char *msg, int id);
 long int	get_time(void);
 
 // thread create
