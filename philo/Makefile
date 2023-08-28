@@ -1,4 +1,4 @@
-SRCS = main.c thread_create.c thread_main.c utils.c misc.c
+SRCS = main.c thread_check.c thread_run.c thread_main.c utils.c
 
 SRCS_O = $(SRCS:.c=.o)
 

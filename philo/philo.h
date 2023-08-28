@@ -10,52 +10,47 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-//main
-typedef struct	s_philo
-{
-	int             id;
-	int             start_time;
-	int             status;
-	int             last_eaten;
-	int				time_to_die;
-	pthread_mutex_t	left_fork;
-	pthread_mutex_t	right_fork;
-}	t_philo;
-
 typedef struct	s_data
 {
 	pthread_t       *philo;
 	int             philo_num;
-	int             meals_num;
-	int            	dead_num;
-	int             finished_num;
+	int				id;
+	int				is_dead;
+	int				*ate_num;
+	long int		*last_ate;
 
-	int			id;
-
-	int			is_alive_bool;
-
-	int			death_time;
-	int			eat_time;
-	int			sleep_time;
-	int			start_time;
+	int				meals_max;
+	int				death_time;
+	int				eat_time;
+	int				sleep_time;
+	int				start_time;
 
 	pthread_mutex_t thread_lock;
+	pthread_mutex_t death_lock;
+	pthread_mutex_t eat_lock;
+	pthread_mutex_t print_lock;
+	pthread_mutex_t check_lock;
 	pthread_mutex_t *forks;
 }	t_data;
 
-// misc
-void	check_data(t_data *data);
-void	print_msg(t_data *data, char *msg, int id);
+// thread check
+int			check_starve(t_data *data);
+
+// thread run
+void		init_thread(t_data *data);
+int			create_thread(t_data *data);
+int			join_thread(t_data *data);
+
+// thread main
+void		*routine(void *arg);
+void		action(t_data *data, int id);
+void		eat(t_data *data, int id);
+int			other_fork_num(t_data *data, int id);
+
+// utils
+void		check_data(t_data *data);
+void		print_msg(t_data *data, char *msg, int id);
 long int	get_time(void);
-
-// thread create
-int		create_thread(t_data *data);
-int		join_thread(t_data *data);
-
-void	*run_thread(t_data *data);
-
-void	*routine(void *arg);
-
-int		ft_atoi(char *str);
+int			ft_atoi(char *str);
 
 #endif
