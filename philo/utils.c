@@ -6,7 +6,7 @@
 /*   By: jutong <jutong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 10:44:14 by jutong            #+#    #+#             */
-/*   Updated: 2023/08/29 10:52:47 by jutong           ###   ########.fr       */
+/*   Updated: 2023/08/29 17:06:06 by jutong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ void	check_data(t_data *data)
 
 void	print_msg(t_data *data, char *msg, int id)
 {
-	long int	time;
-	long int	current_time;
+	unsigned long int	time;
+	unsigned long int	current_time;
 
 	pthread_mutex_lock(&data->print_lock);
 	current_time = get_time();
-	time = current_time - data->start_time ;
+	time = current_time - data->start_time;
 	if (!ft_strcmp("eating", msg))
 		printf("%ld %d is eating\n", time, id + 1);
 	if (!ft_strcmp("thinking", msg))
@@ -45,7 +45,7 @@ void	print_msg(t_data *data, char *msg, int id)
 	return ;
 }
 
-long int	get_time(void)
+unsigned long int	get_time(void)
 {
 	struct timeval	current_time;
 
