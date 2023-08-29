@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   thread_main.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jutong <jutong@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/29 10:44:00 by jutong            #+#    #+#             */
+/*   Updated: 2023/08/29 10:48:35 by jutong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 void	*routine(void *arg)
 {
-	t_data *data;
+	t_data	*data;
 	int		id;
 
 	data = (t_data *)arg;
@@ -29,27 +41,22 @@ void	action(t_data *data, int id)
 
 void	eat(t_data *data, int id)
 {
-
 	pthread_mutex_lock(&data->forks[id]);
 	print_msg(data, "forking", id);
 	pthread_mutex_lock(&data->forks[other_fork_num(data, id)]);
 	print_msg(data, "forking", id);
-
 	print_msg(data, "eating", id);
-
 	pthread_mutex_lock(&data->eat_lock);
 	data->last_ate[id] = get_time();
 	data->ate_num[id] += 1;
-//	printf("%d\n", data->ate_num[id]);
 	pthread_mutex_unlock(&data->eat_lock);
 	usleep(data->eat_time * 1000);
-
 	pthread_mutex_unlock(&data->forks[other_fork_num(data, id)]);
 	pthread_mutex_unlock(&data->forks[id]);
 	return ;
 }
 
-int		other_fork_num(t_data *data, int id)
+int	other_fork_num(t_data *data, int id)
 {
 	int	r_id;
 
@@ -59,4 +66,15 @@ int		other_fork_num(t_data *data, int id)
 	else
 		r_id = id + 1;
 	return (r_id);
+}
+
+void	*handle_one(void *arg)
+{
+	t_data	*data;
+
+	data = (t_data *)arg;
+	print_msg(data, "forking", 0);
+	usleep(data->death_time * 1000);
+	print_msg(data, "dying", 0);
+	return (NULL);
 }

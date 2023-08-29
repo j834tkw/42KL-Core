@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jutong <jutong@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/29 10:43:39 by jutong            #+#    #+#             */
+/*   Updated: 2023/08/29 10:47:19 by jutong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 void	init_data(t_data *data, int ac, char **av)
@@ -41,7 +53,7 @@ void	free_all(t_data *data)
 	pthread_mutex_destroy(&data->thread_lock);
 }
 
-int	main (int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_data	data;
 
@@ -49,8 +61,17 @@ int	main (int ac, char **av)
 		return (0);
 	init_data(&data, ac, av);
 	init_thread(&data);
-	create_thread(&data);
-	check_death(&data);
-	join_thread(&data);
-//	free_all(&data);
+	if (data.philo_num == 1)
+	{
+		pthread_create(&data.philo[0], NULL, (void *)handle_one, (void *)&data);
+		pthread_join(data.philo[0], NULL);
+	}
+	else
+	{	
+		create_thread(&data);
+		check_death(&data);
+		join_thread(&data);
+	}
+	free_all(&data);
+	return (0);
 }

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   thread_check.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jutong <jutong@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/29 10:43:55 by jutong            #+#    #+#             */
+/*   Updated: 2023/08/29 13:38:48 by jutong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
-int		check_starve(t_data *data)
+int	check_starve(t_data *data)
 {
 	int			i;
 	long int	diff;
@@ -22,23 +34,20 @@ int		check_starve(t_data *data)
 	return (0);
 }
 
-int		check_meal_count(t_data *data)
+int	check_meal_count(t_data *data, int *counter)
 {
 	int	i;
-	int	ate_enuf_num;
-	int	checkpoint;
 
-	ate_enuf_num = 0;
 	i = -1;
-	checkpoint = data->meals_max * data->philo_num;
 	if (data->meals_max == 0)
 		return (0);
 	pthread_mutex_lock(&data->check_lock_e);
 	while (++i < data->philo_num)
-		ate_enuf_num += data->ate_num[i];
+		if (data->ate_num[i] == data->meals_max + 1)
+			*counter += 1;
 	pthread_mutex_unlock(&data->check_lock_e);
 	pthread_mutex_lock(&data->death_lock);
-	if (ate_enuf_num >= checkpoint)
+	if (*counter == data->philo_num)
 	{
 		data->is_dead = 1;
 		pthread_mutex_unlock(&data->death_lock);
@@ -48,11 +57,14 @@ int		check_meal_count(t_data *data)
 	return (0);
 }
 
-int		check_death(t_data *data)
+int	check_death(t_data *data)
 {
+	int	counter;
+
+	counter = 0;
 	while (1)
 	{
-		if (check_starve(data) == 1 || check_meal_count(data))
+		if (check_starve(data) == 1 || check_meal_count(data, &counter))
 			break ;
 	}
 	return (0);

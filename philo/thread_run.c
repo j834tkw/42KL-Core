@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   thread_run.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jutong <jutong@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/29 10:44:07 by jutong            #+#    #+#             */
+/*   Updated: 2023/08/29 10:49:31 by jutong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 void	init_thread(t_data *data)
@@ -6,7 +18,8 @@ void	init_thread(t_data *data)
 
 	i = 0;
 	data->philo = (pthread_t *) malloc (sizeof(pthread_t) * data->philo_num);
-	data->forks = (pthread_mutex_t *) malloc (sizeof(pthread_mutex_t) * data->philo_num);
+	data->forks = (pthread_mutex_t *)
+		malloc (sizeof(pthread_mutex_t) * data->philo_num);
 	pthread_mutex_init(&data->check_lock_s, NULL);
 	pthread_mutex_init(&data->check_lock_e, NULL);
 	pthread_mutex_init(&data->print_lock, NULL);
@@ -20,7 +33,7 @@ void	init_thread(t_data *data)
 	}
 }
 
-int		create_thread(t_data *data)
+int	create_thread(t_data *data)
 {
 	int	i;
 
@@ -37,7 +50,7 @@ int		create_thread(t_data *data)
 	return (0);
 }
 
-int		join_thread(t_data *data)
+int	join_thread(t_data *data)
 {
 	int	i;
 	int	n;
