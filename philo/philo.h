@@ -6,7 +6,7 @@
 /*   By: jutong <jutong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 10:43:50 by jutong            #+#    #+#             */
-/*   Updated: 2023/08/29 17:06:29 by jutong           ###   ########.fr       */
+/*   Updated: 2023/08/29 17:11:46 by jutong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@
 
 typedef struct s_data
 {
-	pthread_t		*philo;
-	int				philo_num;
-	int				id;
-	int				is_dead;
-	int				*ate_num;
-	long int		*last_ate;
+	pthread_t				*philo;
+	int						philo_num;
+	int						id;
+	int						is_dead;
+	int						*ate_num;
+	unsigned long int		*last_ate;
 
 	int				meals_max;
 	int				death_time;
