@@ -12,7 +12,7 @@ void	init_data(t_data *data, int ac, char **av)
 	if (ac == 6)
 		data->meals_max = ft_atoi(av[5]);
 	else
-		data->meals_max = -1;
+		data->meals_max = 0;
 	check_data(data);
 	data->id = 0;
 	data->ate_num = (int *) malloc (sizeof(int) * data->philo_num);
@@ -33,7 +33,8 @@ void	free_all(t_data *data)
 	free (data->philo);
 	while (i++ < data->philo_num)
 		pthread_mutex_destroy(&data->forks[i]);
-	pthread_mutex_destroy(&data->check_lock);
+	pthread_mutex_destroy(&data->check_lock_s);
+	pthread_mutex_destroy(&data->check_lock_e);
 	pthread_mutex_destroy(&data->print_lock);
 	pthread_mutex_destroy(&data->eat_lock);
 	pthread_mutex_destroy(&data->death_lock);
@@ -49,7 +50,7 @@ int	main (int ac, char **av)
 	init_data(&data, ac, av);
 	init_thread(&data);
 	create_thread(&data);
-	check_starve(&data);
+	check_death(&data);
 	join_thread(&data);
 //	free_all(&data);
 }

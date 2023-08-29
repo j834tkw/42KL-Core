@@ -7,7 +7,8 @@ void	init_thread(t_data *data)
 	i = 0;
 	data->philo = (pthread_t *) malloc (sizeof(pthread_t) * data->philo_num);
 	data->forks = (pthread_mutex_t *) malloc (sizeof(pthread_mutex_t) * data->philo_num);
-	pthread_mutex_init(&data->check_lock, NULL);
+	pthread_mutex_init(&data->check_lock_s, NULL);
+	pthread_mutex_init(&data->check_lock_e, NULL);
 	pthread_mutex_init(&data->print_lock, NULL);
 	pthread_mutex_init(&data->eat_lock, NULL);
 	pthread_mutex_init(&data->death_lock, NULL);

@@ -8,7 +8,7 @@ void	*routine(void *arg)
 	data = (t_data *)arg;
 	id = data->id;
 	if (id % 2 == 1)
-		usleep(100000);
+		usleep((data->philo_num / 2) * data->eat_time);
 	action(data, id);
 	return (NULL);
 }
@@ -40,6 +40,7 @@ void	eat(t_data *data, int id)
 	pthread_mutex_lock(&data->eat_lock);
 	data->last_ate[id] = get_time();
 	data->ate_num[id] += 1;
+//	printf("%d\n", data->ate_num[id]);
 	pthread_mutex_unlock(&data->eat_lock);
 	usleep(data->eat_time * 1000);
 

@@ -17,15 +17,15 @@ void	print_msg(t_data *data, char *msg, int id)
 
 	pthread_mutex_lock(&data->print_lock);
 	time = get_time() - data->start_time ;//- 1692217114624;
-	if (!strcmp("eating", msg))
+	if (!ft_strcmp("eating", msg))
 		printf("%ld %d is eating\n", time, id+1);
-	if (!strcmp("thinking", msg))
+	if (!ft_strcmp("thinking", msg))
 		printf("%ld %d is thinking\n", time, id+1);
-	if (!strcmp("sleeping", msg))
+	if (!ft_strcmp("sleeping", msg))
 		printf("%ld %d is sleeping\n", time, id+1);
-	if (!strcmp("forking", msg))
+	if (!ft_strcmp("forking", msg))
 		printf("%ld %d has taken a fork\n", time, id+1);
-	if (!strcmp("dying", msg))
+	if (!ft_strcmp("dying", msg))
 		printf("%ld %d has died\n", time, id+1);
 	pthread_mutex_unlock(&data->print_lock);
 	return ;
@@ -57,4 +57,14 @@ int	ft_atoi(char *str)
 		nbr = nbr * 10 + (str[i++] - '0');
 	nbr *= n;
 	return (nbr);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int i;
+
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
 }

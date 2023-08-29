@@ -29,12 +29,15 @@ typedef struct	s_data
 	pthread_mutex_t death_lock;
 	pthread_mutex_t eat_lock;
 	pthread_mutex_t print_lock;
-	pthread_mutex_t check_lock;
+	pthread_mutex_t check_lock_s;
+	pthread_mutex_t check_lock_e;
 	pthread_mutex_t *forks;
 }	t_data;
 
 // thread check
 int			check_starve(t_data *data);
+int			check_meal_count(t_data *data);
+int			check_death(t_data *data);
 
 // thread run
 void		init_thread(t_data *data);
@@ -52,5 +55,6 @@ void		check_data(t_data *data);
 void		print_msg(t_data *data, char *msg, int id);
 long int	get_time(void);
 int			ft_atoi(char *str);
+int			ft_strcmp(char *s1, char *s2);
 
 #endif
