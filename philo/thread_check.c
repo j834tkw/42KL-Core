@@ -6,7 +6,7 @@
 /*   By: jutong <jutong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 10:43:55 by jutong            #+#    #+#             */
-/*   Updated: 2023/08/29 13:38:48 by jutong           ###   ########.fr       */
+/*   Updated: 2023/09/01 15:49:53 by jutong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ int	check_meal_count(t_data *data, int *counter)
 			*counter += 1;
 	pthread_mutex_unlock(&data->check_lock_e);
 	pthread_mutex_lock(&data->death_lock);
-	if (*counter == data->philo_num)
+	if (*counter >= data->philo_num)
 	{
-		data->is_dead = 1;
+		data->yes_all_ate = 1;
 		pthread_mutex_unlock(&data->death_lock);
 		return (1);
 	}

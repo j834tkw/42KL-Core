@@ -6,7 +6,7 @@
 /*   By: jutong <jutong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 10:44:00 by jutong            #+#    #+#             */
-/*   Updated: 2023/08/29 10:48:35 by jutong           ###   ########.fr       */
+/*   Updated: 2023/09/01 22:33:28 by jutong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	*routine(void *arg)
 	data = (t_data *)arg;
 	id = data->id;
 	if (id % 2 == 1)
+	{
+		print_msg(data, "thinking", id);
 		usleep((data->philo_num / 2) * data->eat_time);
+	}
 	action(data, id);
 	return (NULL);
 }
@@ -29,12 +32,20 @@ void	action(t_data *data, int id)
 {
 	while (1)
 	{
-		if (data->is_dead)
+		if (data->is_dead || data->yes_all_ate)
 			break ;
 		eat(data, id);
+		if (data->is_dead || data->yes_all_ate)
+			break ;
 		print_msg(data, "sleeping", id);
+		if (data->is_dead || data->yes_all_ate)
+			break ;
 		usleep(data->sleep_time * 1000);
+		if (data->is_dead || data->yes_all_ate)
+			break ;
 		print_msg(data, "thinking", id);
+		if (data->is_dead || data->yes_all_ate)
+			break ;
 	}
 	return ;
 }
@@ -42,8 +53,19 @@ void	action(t_data *data, int id)
 void	eat(t_data *data, int id)
 {
 	pthread_mutex_lock(&data->forks[id]);
+	if (data->is_dead)
+	{
+		pthread_mutex_unlock(&data->forks[id]);
+		return ;
+	}
 	print_msg(data, "forking", id);
 	pthread_mutex_lock(&data->forks[other_fork_num(data, id)]);
+	if (data->is_dead)
+	{
+		pthread_mutex_unlock(&data->forks[other_fork_num(data, id)]);
+		pthread_mutex_unlock(&data->forks[id]);
+		return ;
+	}
 	print_msg(data, "forking", id);
 	print_msg(data, "eating", id);
 	pthread_mutex_lock(&data->eat_lock);

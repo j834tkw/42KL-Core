@@ -6,7 +6,7 @@
 /*   By: jutong <jutong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 10:43:39 by jutong            #+#    #+#             */
-/*   Updated: 2023/09/01 11:19:10 by jutong           ###   ########.fr       */
+/*   Updated: 2023/09/01 14:55:36 by jutong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ void	init_data(t_data *data, int ac, char **av)
 	data->ate_num = (int *) malloc (sizeof(int) * data->philo_num);
 	while (i++ < data->philo_num)
 		data->ate_num[i] = 0;
-	data->last_ate = (unsigned long int *) malloc (sizeof(unsigned long int) * (data->philo_num + 1));
+	data->last_ate = (unsigned long int *)
+		malloc (sizeof(unsigned long int) * data->philo_num);
 	data->start_time = get_time();
 	data->is_dead = 0;
+	data->yes_all_ate = 0;
 }
 
 void	free_all(t_data *data)

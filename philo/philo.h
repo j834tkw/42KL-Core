@@ -6,7 +6,7 @@
 /*   By: jutong <jutong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 10:43:50 by jutong            #+#    #+#             */
-/*   Updated: 2023/09/01 10:15:26 by jutong           ###   ########.fr       */
+/*   Updated: 2023/09/01 14:55:22 by jutong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,23 @@ typedef struct s_data
 	int						philo_num;
 	int						id;
 	int						is_dead;
+	int						yes_all_ate;
 	int						*ate_num;
 	unsigned long int		*last_ate;
 
-	int				meals_max;
-	int				death_time;
-	int				eat_time;
-	int				sleep_time;
-	long int		start_time;
+	int						meals_max;
+	int						death_time;
+	int						eat_time;
+	int						sleep_time;
+	unsigned long int		start_time;
 
-	pthread_mutex_t	thread_lock;
-	pthread_mutex_t	death_lock;
-	pthread_mutex_t	eat_lock;
-	pthread_mutex_t	print_lock;
-	pthread_mutex_t	check_lock_s;
-	pthread_mutex_t	check_lock_e;
-	pthread_mutex_t	*forks;
+	pthread_mutex_t			thread_lock;
+	pthread_mutex_t			death_lock;
+	pthread_mutex_t			eat_lock;
+	pthread_mutex_t			print_lock;
+	pthread_mutex_t			check_lock_s;
+	pthread_mutex_t			check_lock_e;
+	pthread_mutex_t			*forks;
 }	t_data;
 
 // thread check

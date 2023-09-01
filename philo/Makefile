@@ -4,7 +4,7 @@ SRCS_O = $(SRCS:.c=.o)
 
 NAME = philo
 
-SAN = -g -fsanitize=address
+SAN = -g -fsanitize=thread
 
 CFLAG = -Wall -Wextra -Werror
 
