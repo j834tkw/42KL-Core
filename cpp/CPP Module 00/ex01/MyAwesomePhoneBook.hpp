@@ -29,7 +29,7 @@ class PhoneBook
 
 	public:
 		void			getContact(unsigned int index);
-		void			printContactList(unsigned int index);
+		void			printContactList(unsigned int index, int fulllist);
 		std::string		truncStr(std::string str);
 		void			printSelectedContact(int contactindex);
 };

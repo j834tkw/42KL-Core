@@ -36,7 +36,7 @@ void	PhoneBook::getContact(unsigned int index)
 	return ;
 }
 
-void	PhoneBook::printContactList(unsigned int index)
+void	PhoneBook::printContactList(unsigned int index, int fulllist)
 {
 	string			input;
 	int				i = 0;
@@ -44,7 +44,7 @@ void	PhoneBook::printContactList(unsigned int index)
 	cout << endl;
 	cout << "     INDEX|FIRST NAME| LAST NAME|  NICKNAME" << endl;
 
-	for (unsigned int i = 0; i < index; i++)
+	for (unsigned int i = 0; i < 8; i++)
 	{
 		cout << setw(10) << i + 1 << "|";
 		cout << setw(10) << truncStr(contact[i].getInfo("firstname")) << "|";
@@ -57,11 +57,10 @@ void	PhoneBook::printContactList(unsigned int index)
 	getline(std::cin, input);
 	i = atoi(input.c_str());
 
-	if (i < 1 || i > (int)index)
+	if (i < 1 || (i > (int)index && !fulllist) || (i > 8 && fulllist))
 		cout << "Invalid index. Exiting SEARCH." << endl;
 	else
 		printSelectedContact(i);
-//		cout << input << endl;
 
 	return ;
 }

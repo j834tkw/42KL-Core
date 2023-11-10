@@ -9,11 +9,15 @@ int main()
 	PhoneBook		phonebook;
 	string			input;
 	unsigned int	index = 0;
+	int				fulllist = 0;
 
 	while (1)
 	{
 		if (index == 8)
+		{
 			index = 0;
+			fulllist = 1;
+		}
 
 		cout << "Enter a command: ";
 
@@ -25,7 +29,7 @@ int main()
 			index++;
 		}
 		else if (input == "SEARCH")
-			phonebook.printContactList(index);
+			phonebook.printContactList(index, fulllist);
 		else if (input == "EXIT")
 			break ;
 		else
