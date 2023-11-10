@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <cstring>
+#include <iomanip>
+#include <string.h>
+#include <cstdlib>
 
 class Contact
 {
@@ -17,7 +20,6 @@ class Contact
 	public:
 		void			editContact(std::string firstname, std::string lastname, std::string nickname, std::string phonenum, std::string darkestsecret);
 		std::string		getInfo(std::string target);
-
 };
 
 class PhoneBook
@@ -27,7 +29,9 @@ class PhoneBook
 
 	public:
 		void			getContact(unsigned int index);
-		void			printContact(unsigned int index);
+		void			printContactList(unsigned int index);
+		std::string		truncStr(std::string str);
+		void			printSelectedContact(int contactindex);
 };
 
 #endif

@@ -22,5 +22,5 @@ std::string		Contact::getInfo(std::string target)
 	else if (target == "darkestsecret")
 		return (_darkestSecret);
 	else
-		return (NULL);
+		return ("");
 }

@@ -1,10 +1,10 @@
-SRC			= main.cpp PhoneBook.cpp
+SRC			= main.cpp PhoneBook.cpp Contact.cpp
 
 CC			= g++
 RM			= rm -rf
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
-NAME		= megaphone
+NAME		= phonebook
 
 all:	${NAME}
 

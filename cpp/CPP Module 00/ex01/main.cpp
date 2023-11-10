@@ -4,25 +4,33 @@ using std::string;
 using std::cout;
 using std::endl;
 
-int main(int ac, char **av)
+int main()
 {
 	PhoneBook		phonebook;
-	string			input{};
+	string			input;
 	unsigned int	index = 0;
 
 	while (1)
 	{
 		if (index == 8)
 			index = 0;
-		cout << "Enter a command" << endl;
+
+		cout << "Enter a command: ";
+
 		std::getline(std::cin, input);
+
 		if (input == "ADD")
+		{
 			phonebook.getContact(index);
+			index++;
+		}
 		else if (input == "SEARCH")
-			phonebook.printContact(index);
+			phonebook.printContactList(index);
 		else if (input == "EXIT")
 			break ;
-		index++;
+		else
+			cout << "Please enter either ADD, SEARCH or EXIT only." << endl;
 	}
+
 	return (0);
 }
