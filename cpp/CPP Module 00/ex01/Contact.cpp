@@ -2,11 +2,11 @@
 
 void	Contact::editContact(std::string firstname, std::string lastname, std::string nickname, std::string phonenum, std::string darkestsecret)
 {
-	this->_firstName.assign(firstname);
-	this->_lastName.assign(lastname);
-	this->_nickName.assign(nickname);
-	this->_phoneNum.assign(phonenum);
-	this->_darkestSecret.assign(darkestsecret);
+	_firstName.assign(firstname);
+	_lastName.assign(lastname);
+	_nickName.assign(nickname);
+	_phoneNum.assign(phonenum);
+	_darkestSecret.assign(darkestsecret);
 }
 
 std::string		Contact::getInfo(std::string target)
