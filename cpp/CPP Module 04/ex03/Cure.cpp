@@ -25,6 +25,7 @@ Cure::Cure()
 
 Cure::Cure(const Cure &Cure) : AMateria()
 {
+	this->type = "cure";
 	*this = Cure;
 }
 

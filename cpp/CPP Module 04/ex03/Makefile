@@ -4,7 +4,7 @@ CC			= g++
 RM			= rm -rf
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
-NAME		= a.out
+NAME		= materia
 
 all:	${NAME}
 
@@ -12,7 +12,7 @@ ${NAME}: ${SRC}
 	${CC} ${CFLAGS} ${SRC} -o ${NAME}
 
 clean:
-	${RM} *.o
+	${RM} ${NAME}
 
 fclean: clean
 	${RM} ${NAME}

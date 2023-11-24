@@ -25,6 +25,7 @@ Ice::Ice()
 
 Ice::Ice(const Ice &Ice) : AMateria()
 {
+	this->type = "ice";
 	*this = Ice;
 }
 

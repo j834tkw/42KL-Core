@@ -39,7 +39,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (inventory[idx] != NULL)
+	if (inventory[idx] != NULL && (idx >= 0 && idx <= 3))
 		inventory[idx]->use(target);
 	else
 		cout << "Nothing is equipped in slot no." << idx << endl;
