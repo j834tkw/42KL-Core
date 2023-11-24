@@ -5,7 +5,7 @@
 #include <string>
 #include "AMateria.hpp"
 
-class AMateria;
+class AMateria; // AMateria depends on ICharacter and vice-versa, so we need to forward declare one of the classes. This issue is called cross referencing.
 
 class ICharacter
 {

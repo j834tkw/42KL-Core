@@ -5,8 +5,8 @@
 class Character : public ICharacter
 {
  private:
-	int			itemsDropped;
-	AMateria*	floor[40];
+	int			itemsDropped; // serves as index for floor
+	AMateria*	floor[40]; // can't delete unequipped items, so i put them in another AMateria array called floor instead
 	AMateria*	inventory[4];
 	std::string	name;
 
