@@ -17,16 +17,42 @@ int main( void ) {
 	return 0;
 }
 
-// Fixed.hpp prefix & postfix operators
+// int main(void)
+// {
+// 	Fixed a;
+// 	Fixed b;
 
-// To distinguish between prefix and postfix operators, the arguments are divided into void and int. There is 
-// no special reason, but it serves to tell the compiler whether it is a prefix or a postfix by distinguishing it 
-// with a dummy. This is a rule that arose because the compiler cannot distinguish whether the function is prefix 
-// or postfix based on the return value of the argument.
+// 	a = 10;
+// 	b = 5;
 
-// If you look at the prefix operator first, it returns a reference to *this after increasing or decreasing this→value. 
-// If you see this for the first time if you are not familiar with the reference, it will be very confusing, but let's 
-// think of it as C and look at it again. When getting the variable of this structure, use '.' Because '→' is used 
-// instead of , you can tell that this is a pointer. Therefore, to return the original value of the pointer, use * as a 
-// unary operator to return the value, and its referencing is done automatically. If you try to return just this instead 
-// of *this, a compilation error will occur because you are trying to create a reference to a temporary object.
+// 	std::cout << "a is " << a << std::endl;
+// 	std::cout << "b is " << b << std::endl;
+// 	std::cout << std::endl;
+// 	std::cout << "is a larger than b? " << (a > b) << std::endl;
+// 	std::cout << "is a smaller than b? " << (a < b) << std::endl;
+// 	std::cout << "is a larger or equal than b? " << (a >= b) << std::endl;
+// 	std::cout << "is a smaller or equal than b? " << (a <= b) << std::endl;
+// 	std::cout << "is a equal than b? " << (a == b) << std::endl;
+// 	std::cout << "is a not equal than b? " << (a != b) << std::endl;
+// 	std::cout << std::endl;
+// 	std::cout << "a + b = " << (a + b) << std::endl;
+// 	std::cout << "a - b = " << (a - b) << std::endl;
+// 	std::cout << "a * b = " << (a * b) << std::endl;
+// 	std::cout << "a / b = " << (a / b) << std::endl;
+// 	std::cout << std::endl;
+// 	std::cout << "prefix increment a: " << ++a << std::endl;
+// 	std::cout << "it is now: " << a << std::endl;
+// 	std::cout << "postfix increment a: " << a++ << std::endl;
+// 	std::cout << "it is now: " << a << std::endl;
+// 	std::cout << "prefix decrement a: " << --a << std::endl;
+// 	std::cout << "it is now: " << a << std::endl;
+// 	std::cout << "postfix decrement a: " << a-- << std::endl;
+// 	std::cout << "it is now: " << a << std::endl;
+// 	std::cout << std::endl;
+// 	std::cout << "the max between a and b is: " << Fixed::max(a, b) << std::endl;
+// 	std::cout << "the min between a and b is: " << Fixed::min(a, b) << std::endl;
+// }
+
+// Prefix & postfix operators cant be differenciated by return type, only by parameter list
+
+// The compiler uses the int argument to distinguish between the prefix and postfix operators.

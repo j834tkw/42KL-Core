@@ -145,18 +145,18 @@ Fixed	Fixed::operator /(Fixed const &ref) const
 	return (ret);
 }
 
-Fixed &Fixed::operator++(void)
+Fixed &Fixed::operator++(void) //prefix
 {
 	this->value++;
-	return (*this);
+	return (*this); //increment then return
 }
 
-Fixed	Fixed::operator++(int)
+Fixed	Fixed::operator++(int) //postfix
 {
 	Fixed	ret(*this);
 
-	this->value++;
-	return (ret);
+	this->value++; //value is still incremented, but ret does not know this
+	return (ret); //return value before increment happened
 }
 
 Fixed &Fixed::operator--(void)
