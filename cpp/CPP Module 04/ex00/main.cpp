@@ -6,33 +6,31 @@
 
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	const WrongAnimal* wrong = new WrongCat();
+	const Animal* randoAnimal = new Animal();
+	const Animal* doggo = new Dog();
+	const Animal* catto = new Cat();
+	const WrongAnimal* notCatto = new WrongCat();
 
 	std::cout << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
+	std::cout << catto->getType() << " " << std::endl;
+	catto->makeSound();
 	std::cout << std::endl;
-	std::cout << j->getType() << " " << std::endl;
-	j->makeSound();
+	std::cout << doggo->getType() << " " << std::endl;
+	doggo->makeSound();
 	std::cout << std::endl;
-	std::cout << meta->getType() << " " << std::endl;
-	meta->makeSound();
+	std::cout << randoAnimal->getType() << " " << std::endl;
+	randoAnimal->makeSound();
 	std::cout << std::endl;
-	std::cout << wrong->getType() << " " << std::endl;
-	wrong->makeSound();
+	std::cout << notCatto->getType() << " " << std::endl;
+	notCatto->makeSound();
 	std::cout << std::endl;
 
-	delete meta;
-	meta = NULL;
-	delete j;
-	j = NULL;
-	delete i;
-	i = NULL;
-	delete wrong;
-	wrong = NULL;
-	return 0;
+	delete randoAnimal;
+	delete doggo;
+	delete catto;
+	delete notCatto;
 	return 0;
 }
+
+// Deleting a derived class object using a pointer of base class type that has a non-virtual destructor results in undefined behavior. 
+// To correct this situation, the base class should be defined with a virtual destructor. 

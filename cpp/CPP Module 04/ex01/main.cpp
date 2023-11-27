@@ -6,11 +6,13 @@
 
 int main()
 {
+	// new & delete tests
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 	delete j;
 	delete i;
 
+	// array of half dog half cat test
 	Animal* animals[100];
 
 	for (int i = 0; i < 50; i++)
@@ -21,25 +23,23 @@ int main()
 		delete animals[i];
 	std::cout << std::endl;
 
+	// deep copy test
 	std::string str;
 
-	Dog *doggo = new Dog();
-	Dog *donggo = new Dog();
+	Dog doggo;
 
-	str = doggo->getBrain()->getIdea(0);
+	str = doggo.getBrain()->getIdea(0);
 	std::cout << "Doggo's has an idea. He says: " << std::endl;
-
-	doggo->getBrain()->setIdea("I want to eat a nuke and explode in the night sky to create the best fireworks ever!!!", 0);
-	str = doggo->getBrain()->getIdea(0);
+	doggo.getBrain()->setIdea("I want to eat a nuke and explode in the night sky to create the best fireworks ever!!!", 0);
+	str = doggo.getBrain()->getIdea(0);
 	std::cout << "Doggo's has an idea. He says: "<< str << std::endl;
-
-	*donggo = *doggo;
-	str = donggo->getBrain()->getIdea(0);
-	std::cout << "Donggo's has an idea. He says: "<< str << std::endl;
 	std::cout << std::endl;
 
-	delete doggo;
-	delete donggo;
+	Dog donggo = doggo;
+
+	str = donggo.getBrain()->getIdea(0);
+	std::cout << "Donggo's has an idea. He says: "<< str << std::endl;
+	std::cout << std::endl;
 
 	return 0;
 }

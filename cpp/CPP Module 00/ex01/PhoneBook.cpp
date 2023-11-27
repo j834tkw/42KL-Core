@@ -25,7 +25,7 @@ void	PhoneBook::getContact(unsigned int index)
 	cout << "Enter darkest secret: ";
 	getline(std::cin, darkestsecret);
 
-	if (firstname.empty() || lastname.empty() || nickname.empty() || phonenum.empty() || darkestsecret.empty())
+	if (firstname.empty() || lastname.empty() || nickname.empty() || phonenum.empty() || darkestsecret.empty()) // check if any field is empty
 		cout << "There are empty field(s). No empty fields allowed. " << endl;
 	else
 	{
@@ -47,7 +47,7 @@ void	PhoneBook::printContactList(unsigned int index, int fulllist)
 	for (unsigned int i = 0; i < 8; i++)
 	{
 		cout << setw(10) << i + 1 << "|";
-		cout << setw(10) << truncStr(contact[i].getInfo("firstname")) << "|";
+		cout << setw(10) << truncStr(contact[i].getInfo("firstname")) << "|"; // set width, then trunc according to width set
 		cout << setw(10) << truncStr(contact[i].getInfo("lastname")) << "|";
 		cout << setw(10) << truncStr(contact[i].getInfo("nickname")) << endl;
 	}
@@ -55,7 +55,7 @@ void	PhoneBook::printContactList(unsigned int index, int fulllist)
 	cout << endl;
 	cout << "Select an index to display contact: ";
 	getline(std::cin, input);
-	i = atoi(input.c_str());
+	i = atoi(input.c_str()); // change str to char * so atoi is usable
 
 	if (i < 1 || (i > (int)index && !fulllist) || (i > 8 && fulllist))
 		cout << "Invalid index. Exiting SEARCH." << endl;

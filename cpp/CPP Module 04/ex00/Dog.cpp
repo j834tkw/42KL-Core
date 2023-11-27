@@ -23,6 +23,7 @@ Dog::Dog(const Dog &Dog) : Animal()
 
 Dog &Dog::operator = (const Dog &Dog)
 {
+	cout << "[Dog] Copy assignment operator called" << endl;
 	if (this == &Dog)
 		return (*this);
 	this->type = Dog.type;

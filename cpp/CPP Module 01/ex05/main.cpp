@@ -16,3 +16,6 @@ int	main(void)
 
 	return (0);
 }
+
+// Declaring a pointer to a member function:
+// return_type (class_name::*pointer_name) (parameter types)

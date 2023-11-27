@@ -12,7 +12,7 @@ ${NAME}: ${SRC}
 	${CC} ${CFLAGS} ${SRC} -o ${NAME}
 
 clean:
-	${RM} *.o
+	${RM} ${NAME}
 
 fclean: clean
 	${RM} ${NAME}

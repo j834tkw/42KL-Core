@@ -15,13 +15,13 @@ int main()
 	{
 		if (index == 8)
 		{
-			index = 0;
+			index = 0; // reset index so new adding contact starts from beginning
 			fulllist = 1;
 		}
 
 		cout << "Enter a command: ";
 
-		std::getline(std::cin, input);
+		std::getline(std::cin, input); // wait & get an input
 
 		if (input == "ADD")
 		{
@@ -31,7 +31,7 @@ int main()
 		else if (input == "SEARCH")
 			phonebook.printContactList(index, fulllist);
 		else if (input == "EXIT")
-			break ;
+			break ; // break infinite while loop
 		else
 			cout << "Please enter either ADD, SEARCH or EXIT only." << endl;
 	}

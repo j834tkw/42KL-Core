@@ -23,3 +23,6 @@ int	main(int ac, char **av)
 	delete[] zomzoms;
 	return (0);
 }
+
+// In C++, the single object of the class which is created at runtime using a new operator is deleted by 
+// using the delete operator, while the array of objects is deleted using the delete[] operator

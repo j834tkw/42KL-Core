@@ -2,7 +2,7 @@ SRC			= main.cpp Zombie.cpp zombieHorde.cpp
 
 CC			= g++
 RM			= rm -rf
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
+CFLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
 NAME		= zombie
 
@@ -12,7 +12,7 @@ ${NAME}: ${SRC}
 	${CC} ${CFLAGS} ${SRC} -o ${NAME}
 
 clean:
-	${RM} *.o
+	${RM} ${NAME}
 
 fclean: clean
 	${RM} ${NAME}
