@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cstdio>
 
-using namespace std;
+using std::cout;
+using std::endl;
 
 int main(int ac, char **av)
 {
