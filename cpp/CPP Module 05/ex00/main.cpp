@@ -4,47 +4,47 @@ int main()
 {
 	try
 	{
-		Bureaucrat test("test", 200);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+		Bureaucrat a("bozo", 125);
+		Bureaucrat b("ozob", 5);
+
+		std::cout << a << std::endl;
+		std::cout << b << std::endl;
+
+		a.incrementGrade();
+		b.decrementGrade();
 	
-	try
-	{
-		Bureaucrat a("a", 125);
-		Bureaucrat b("b", 5);
-
 		std::cout << a << std::endl;
 		std::cout << b << std::endl;
-		std::cout << std::endl;
-
-		a.incrementGrade();
-		b.decrementGrade();
-		std::cout << a << std::endl;
-		std::cout << b << std::endl;
-		std::cout << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
 
+	std::cout << std::endl;
+
 	try
 	{
-		Bureaucrat a("a", 150);
-		Bureaucrat b("b", 1);
+		Bureaucrat a("man", 150);
 
 		std::cout << a << std::endl;
-		std::cout << b << std::endl;
-		std::cout << std::endl;
-
-		a.incrementGrade();
-		b.decrementGrade();
+		a.decrementGrade();	
 		std::cout << a << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << std::endl;
+
+	try
+	{
+		Bureaucrat b("Man", 1);
+
 		std::cout << b << std::endl;
-		std::cout << std::endl;
+		b.incrementGrade();
+		std::cout << b << std::endl;
 	}
 	catch(const std::exception& e)
 	{

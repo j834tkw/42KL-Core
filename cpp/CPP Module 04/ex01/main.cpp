@@ -13,6 +13,7 @@ int main()
 	delete i;
 
 	// array of half dog half cat test
+	std::cout << std::endl;
 	Animal* animals[100];
 
 	for (int i = 0; i < 50; i++)
@@ -29,7 +30,7 @@ int main()
 	Dog doggo;
 
 	str = doggo.getBrain()->getIdea(0);
-	std::cout << "Doggo's has an idea. He says: " << std::endl;
+	std::cout << "Doggo's has an idea. He says: " << str << std::endl;
 	doggo.getBrain()->setIdea("I want to eat a nuke and explode in the night sky to create the best fireworks ever!!!", 0);
 	str = doggo.getBrain()->getIdea(0);
 	std::cout << "Doggo's has an idea. He says: "<< str << std::endl;

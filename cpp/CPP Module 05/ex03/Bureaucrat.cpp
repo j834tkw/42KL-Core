@@ -30,7 +30,7 @@ void    Bureaucrat::decrementGrade()
 	cout << "Decremented" << endl;
 }
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signForm(AForm &form)
 {
 	if (form.getIsSigned() == true)
 	{
@@ -42,12 +42,26 @@ void	Bureaucrat::signForm(Form &form)
 	{
 		form.beSigned(*this);
 	}
-	catch (const Form::GradeTooLowException &e)
+	catch (const AForm::GradeTooLowException &e)
 	{
 		cout << "Bureaucrat " << this->getName() << " is unable to sign the form [" << form.getName() << "] due to not meeting the minumum grade requirements of the form" << endl;
 	}
 	if (form.getIsSigned() == true)
 			cout << "Bureaucrat " << this->getName() << " has signed the form [" << form.getName() << "]" << endl;
+}
+
+void	Bureaucrat::executeForm(AForm &form)
+{
+	try
+	{
+		form.execute((*this));
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->getName() << " was not able to execute the form [" << form.getName() << "] because " << e.what() << std::endl;
+		return ;
+	}
+	std::cout << this->getName() << " has successfully executed the form [" << form.getName() << "]" << std::endl;
 }
 
 //--------------------------------------------------------------------Le stuff------------------------------------------------------------------//

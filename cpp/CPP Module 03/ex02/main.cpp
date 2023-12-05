@@ -6,7 +6,7 @@ int main()
 {
 	FragTrap	amogus("amogus");
 	FragTrap	sussybaka;
-	
+
 	sussybaka = amogus;
 
 	sussybaka.attack("himself (SUSuga amogus sensei)");

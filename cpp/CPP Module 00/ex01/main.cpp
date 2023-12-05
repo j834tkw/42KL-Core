@@ -31,7 +31,7 @@ int main()
 		else if (input == "SEARCH")
 			phonebook.printContactList(index, fulllist);
 		else if (input == "EXIT")
-			break ; // break infinite while loop
+			break ;
 		else
 			cout << "Please enter either ADD, SEARCH or EXIT only." << endl;
 	}

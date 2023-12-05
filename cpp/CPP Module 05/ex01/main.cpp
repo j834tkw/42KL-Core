@@ -1,60 +1,58 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-int main()
+
+using std::cout;
+using std::endl;
+
+int main(void)
 {
-	try
-	{
-		Bureaucrat test("test", 200);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	
-	try
-	{
-		Bureaucrat a("a", 125);
-		Bureaucrat b("b", 5);
+	// ---------------Can use these stuff----------------//
+	// Bureaucrat B1("Amogus", 1);
+	// Bureaucrat B2("Christopher Columbus", 75);
 
-		std::cout << a << std::endl;
-		std::cout << b << std::endl;
-		std::cout << std::endl;
-
-		a.incrementGrade();
-		b.decrementGrade();
-		std::cout << a << std::endl;
-		std::cout << b << std::endl;
-		std::cout << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	// Form F1("Contract to abstain from venting", 150, 150);
+	// Form F2("Agreement for the resurrection of Hitler with the nazi army and Qin Shi Huang with his teracotta army", 100, 100);
+	// Form F3("Legalisation of slave trading", 1, 1);
 
 	try
 	{
-		Bureaucrat a("a", 150);
-		Bureaucrat b("b", 1);
-
-		std::cout << a << std::endl;
-		std::cout << b << std::endl;
-		std::cout << std::endl;
-
-		a.incrementGrade();
-		b.decrementGrade();
-		std::cout << a << std::endl;
-		std::cout << b << std::endl;
-		std::cout << std::endl;
+		Bureaucrat B1("Amogus", 1);
+		Form F1("Contract to abstain from venting", 150, 150);
+		B1.signForm(F1);
 	}
-	catch(const std::exception& e)
+	catch (const Form::GradeTooLowException& err)
 	{
-		std::cerr << e.what() << std::endl;
+		cout << err.what() << endl;
 	}
 
-return (0);
+	cout << endl;
+
+	try
+	{
+		Bureaucrat B2("Christopher Columbus", 75);
+		Form F3("Legalisation of slave trading", 1, 1);
+		B2.signForm(F3);
+	}
+	catch (const Form::GradeTooLowException& err)
+	{
+		cout << err.what() << endl;
+	}
+
+	cout << endl;
+
+	try
+	{
+		Bureaucrat B1("Amogus", 1);
+		Bureaucrat B2("Christopher Columbus", 75);
+		Form F2("Agreement for the resurrection of Hitler with the nazi army and Qin Shi Huang with his teracotta army", 100, 100);
+		B1.signForm(F2);
+		B2.signForm(F2);
+	}
+	catch (const Form::GradeTooLowException& err)
+	{
+		cout << err.what() << endl;
+	}
+
+	return (0);
 }
-
-// Exception handling in C++ consist of three keywords: try, throw and catch:
-// 	-	The try statement allows you to define a block of code to be tested for errors while it is being executed.
-// 	-	The throw keyword throws an exception when a problem is detected, which lets us create a custom error.
-// 	-	The catch statement allows you to define a block of code to be executed, if an error occurs in the try block.

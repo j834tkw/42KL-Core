@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <string>
+#include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -11,10 +14,12 @@ class Bureaucrat
 		int					grade;
 
 	public:
-		std::string	const getName() const;
-		int			getGrade() const;
-		void		incrementGrade();
-		void		decrementGrade();
+		std::string	const	getName() const;
+		int					getGrade() const;
+		void				incrementGrade();
+		void				decrementGrade();
+		void				signForm(AForm &form);
+		void				executeForm(AForm &form);
 
 		Bureaucrat(void);
 		Bureaucrat(const Bureaucrat& obj);
@@ -22,10 +27,10 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat& obj);
 		~Bureaucrat();
 
-		class GradeTooHighException : public std::exception // inherits all properties from the std::exception class
+		class GradeTooHighException : public std::exception
 		{
-			public: // The what() function returns a null terminated char* that may be used to identify the exception.
-				const char * what(void) const throw() // The what() function from std::exception is overridden, which returns a custom error message string.
+			public:
+				const char * what(void) const throw()
 				{
 					return ("Grade too high");
 				}

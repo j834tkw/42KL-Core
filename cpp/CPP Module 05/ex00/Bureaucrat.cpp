@@ -48,28 +48,18 @@ int	Bureaucrat::getGrade() const
 
 void    Bureaucrat::incrementGrade()
 {
-	if (this->grade + 1 > 150)
-		throw Bureaucrat::GradeTooHighException();
-	this->grade++;
+	if (this->grade - 1 < 1) // highest grade is 1, increment causes grade to - 1
+		throw Bureaucrat::GradeTooHighException(); // whenever the custom exception occurs, the error message is displayed
+	this->grade--;
 	cout << "Incremented" << endl;
 }
 
 void    Bureaucrat::decrementGrade()
 {
-	if (this->grade - 1 < 0)
+	if (this->grade + 1 > 150) // lowest grade is 150, decrement causes grade to + 1
 		throw Bureaucrat::GradeTooLowException();
-	this->grade--;
+	this->grade++;
 	cout << "Decremented" << endl;
-}
-
-const char * Bureaucrat::GradeTooHighException::what(void) const throw()
-{
-	return ("Grade too high");
-}
-
-const char * Bureaucrat::GradeTooLowException::what(void) const throw()
-{
-	return ("Grade too low");
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &obj)
