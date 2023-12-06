@@ -14,6 +14,7 @@ class RobotomyRequestForm: public AForm
 	public:
 		std::string getTarget() const;
 		void	action() const;
+		// static AForm *createFormRR(std::string target);
 
 		RobotomyRequestForm();
 		RobotomyRequestForm(std::string newTarget);

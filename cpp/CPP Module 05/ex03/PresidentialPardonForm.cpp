@@ -14,6 +14,11 @@ void	PresidentialPardonForm::action() const
 	cout << getTarget() << " has been pardoned by Zaphod Beeblebrox" << endl;
 }
 
+// AForm *PresidentialPardonForm::createFormPP(std::string target)
+// {
+// 	return (new PresidentialPardonForm(target));
+// }
+
 //--------------------------------------------------------------------Le stuff------------------------------------------------------------------//
 
 PresidentialPardonForm::PresidentialPardonForm() : AForm("Presidential Pardon", 25, 5), target("Late president's assassinator")

@@ -13,6 +13,7 @@ class ShrubberyCreationForm: public AForm
 	public:
 		std::string getTarget() const;
 		void	action() const;
+		// static AForm *createFormSC(std::string target);
 
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(std::string newTarget);

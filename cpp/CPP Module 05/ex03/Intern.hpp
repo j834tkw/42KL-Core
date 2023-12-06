@@ -11,14 +11,17 @@
 class Intern
 {
 	public:
+		AForm* makeForm(string newFormName, string newFormTarget);
+		static AForm *createFormPP(std::string target);
+		static AForm *createFormRR(std::string target);
+		static AForm *createFormSC(std::string target);
+
 		Intern();
 		Intern(const Intern &intern);
 		Intern &operator = (const Intern &intern);
 		~Intern();
-
-		AForm* makeForm(string formBureau, string formTarget);
-
-		class FormNotExistException: public std::exception
+	
+		class InvalidFormException: public std::exception
 		{
 			public:
 				const char* what() const throw()

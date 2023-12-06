@@ -11,7 +11,7 @@ string RobotomyRequestForm::getTarget() const
 
 void	RobotomyRequestForm::action() const
 {
-	srand(time(0)); // seed the RNG with a different number each time you launch the program by using time as the seed
+	srand(time(0));
 	int fiftyfifty = rand() % 2;
 
 	if (fiftyfifty == 1)
@@ -19,6 +19,11 @@ void	RobotomyRequestForm::action() const
 	else
 		cout << this->getTarget() << " did not become a cool construct" << endl;
 }
+
+// AForm *RobotomyRequestForm::createFormRR(std::string target)
+// {
+// 	return (new RobotomyRequestForm(target));
+// }
 
 //--------------------------------------------------------------------Le stuff------------------------------------------------------------------//
 

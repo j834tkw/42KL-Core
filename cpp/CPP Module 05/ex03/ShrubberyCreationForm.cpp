@@ -38,6 +38,11 @@ void	ShrubberyCreationForm::action() const
 		outfile.close();
 }
 
+// AForm *ShrubberyCreationForm::createFormSC(std::string target)
+// {
+// 	return (new ShrubberyCreationForm(target));
+// }
+
 //--------------------------------------------------------------------Le stuff------------------------------------------------------------------//
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery Creation", 145, 137), target("Botanist")

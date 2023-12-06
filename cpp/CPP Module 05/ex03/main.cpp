@@ -3,36 +3,41 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 using std::cout;
 using std::endl;
 
+	// "presidential pardon",
+	// "robotomy request",
+	// "shrubbery creation"
+
 int main(void)
 {
-	// try
-	// {
-	// 	Bureaucrat B1("Crewmate", 1);
-	// 	PresidentialPardonForm F1("Imposter");
-	// 	PresidentialPardonForm F2(F1);
-	// 	B1.signForm(F2);
-	// 	B1.executeForm(F2);
-	// }
-	// catch (const std::exception& e) //catch any exception declared
-	// {
-	// 	cout << e.what() << endl;
-	// }
+	try
+	{
+		Intern RandomDude3;
+		Bureaucrat B1("dark and black person", 1);
+		AForm *F1 = RandomDude3.makeForm("presidential pardon", "racist");
+
+		B1.signForm(*F1);
+		B1.executeForm(*F1);
+	}
+	catch (const std::exception& e)
+	{
+		cout << e.what() << endl;
+	}
 
 	cout << endl;
 
 	// try
 	// {
-	// 	Bureaucrat B2("NPC_0001", 145);
-	// 	Bureaucrat B3("Asimov", 1);
-	// 	RobotomyRequestForm F3("Noan");
-	// 	B2.signForm(F3); //cant sign form
-	// 	B3.signForm(F3);
-	// 	B2.executeForm(F3); //cant execute form
-	// 	B3.executeForm(F3);
+	// 	Intern RandomDude2;
+	// 	Bureaucrat B2("le babi oink oink", 1);
+	// 	AForm *F2 = RandomDude2.makeForm("robotomy request", "chicharron");
+
+	// 	B2.signForm(*F2);
+	// 	B2.executeForm(*F2);
 	// }
 	// catch (const std::exception& e)
 	// {
@@ -41,17 +46,19 @@ int main(void)
 
 	cout << endl;
 
-	try
-	{
-		Bureaucrat B4("Most epic botanist or sum", 1);
-		ShrubberyCreationForm F4("Tree");
-		B4.signForm(F4);
-		B4.executeForm(F4);
-	}
-	catch (const std::exception& e)
-	{
-		cout << e.what() << endl;
-	}
+	// try
+	// {
+	// 	Intern RandomDude3;
+	// 	Bureaucrat B3("dunno", 1);
+	// 	AForm *F3 = RandomDude3.makeForm("shrubbery creation", "idk");
+
+	// 	B3.signForm(*F3);
+	// 	B3.executeForm(*F3);
+	// }
+	// catch (const std::exception& e)
+	// {
+	// 	cout << e.what() << endl;
+	// }
 
 	return (0);
 }

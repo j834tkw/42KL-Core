@@ -12,6 +12,7 @@ class PresidentialPardonForm: public AForm
 	public:
 		std::string getTarget() const;
 		void	action() const;
+		// static AForm *createFormPP(std::string target);
 
 		PresidentialPardonForm();
 		PresidentialPardonForm(std::string newTarget);
