@@ -13,7 +13,7 @@ void	convChar(string input)
 	char thing = input[0];
 
 	cout << "Char: " << thing << endl;
-	cout << "Int: " << static_cast<int>(thing) << endl;
+	cout << "Int: " << static_cast<int>(thing) << endl; // static_cast is a compile-time cast. It does things like implicit conversions between types
 	cout << "Float: " << fixed << setprecision(1) << static_cast<float>(thing) << "f" << endl;
 	cout << "Double: " << fixed << setprecision(1) << static_cast<double>(thing) << endl;
 }

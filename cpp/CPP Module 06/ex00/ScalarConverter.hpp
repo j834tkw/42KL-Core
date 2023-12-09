@@ -15,7 +15,8 @@ using std::cout;
 class ScalarConverter
 {
 	private:
-		ScalarConverter();
+		ScalarConverter();	// a private constructor is used to restrict the creation of objects outside of the class itself
+							// which also means the class is non instantiable now
 
 	public:
 		static void		convert(string input);
