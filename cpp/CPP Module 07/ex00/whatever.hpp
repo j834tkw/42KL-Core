@@ -10,6 +10,8 @@
 // Templates can only be implemented in the header file
 // Otherwise, potential compilation and linking problems will arise
 
+// https://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file
+
 template <typename t1> void swap(t1 &a, t1 &b)
 {
 	t1 temp = b;
