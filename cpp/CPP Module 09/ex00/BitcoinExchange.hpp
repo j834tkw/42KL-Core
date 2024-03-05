@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <stdlib.h>
 #include <sstream>
 #include <map>
 #include <string>
@@ -20,11 +21,12 @@ class btcExchange
 		btcExchange& operator=(btcExchange const &var);
 		btcExchange(btcExchange const &var);
 
-		void addData(std::string date, float value);
+		std::string retrieveInput(std::string line, std::string type);
 		void readInput(char *inputPath);
-
-		std::map<std::string, float> getData();
-		std::vector<std::string> splitString(std::string str, char delimiter);
+		void retrieveData();
+	
+		bool isValidDate(std::string date);
+		bool isValidValue(std::string value);
 };
 
 #endif
