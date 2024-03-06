@@ -12,6 +12,6 @@ int main(int ac, char **av)
 		cout << "Please use only one file as parameter" << endl;
 		return (0);
 	}
-
+	btc.retrieveData();
 	btc.readInput(av[1]);
 }
