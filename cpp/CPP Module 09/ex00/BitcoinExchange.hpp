@@ -19,8 +19,8 @@ class btcExchange
 	public:
 		btcExchange();
 		~btcExchange();
-		btcExchange& operator=(btcExchange const &var);
-		btcExchange(btcExchange const &var);
+		btcExchange& operator=(btcExchange const &obj);
+		btcExchange(btcExchange const &obj);
 
 		std::string trimStr(std::string str);
 		std::string retrieveInput(std::string line, std::string type);
