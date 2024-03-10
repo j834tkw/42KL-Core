@@ -13,5 +13,5 @@ int main(int ac, char **av)
 		cout << "Please input the expression as one string" << endl;
 		return (-1);
 	}
-	rpn.retrieveData(av[1]);
+	rpn.runRPN(av[1]);
 }

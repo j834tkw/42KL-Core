@@ -3,20 +3,15 @@
 
 #include <iostream>
 #include <fstream>
-#include <stdlib.h>
-#include <sstream>
-#include <map>
 #include <string>
-#include <vector>
 #include <cctype>
-#include <algorithm>
-#include <deque>
+#include <stack>
+#include <exception>
 
 class RPN
 {
 	private:
-		std::deque<int>		numbers;
-		std::deque<char>	operations;
+		std::stack<int>		numbers;
 
 	public:
 		RPN();
@@ -24,7 +19,9 @@ class RPN
 		RPN	&operator = (const RPN &obj);
 		~RPN();
 
-		void	retrieveData(char *line);
+		void	runRPN(char *line);
+		int		calculateRPN(char *line);
+		int		executeOp(char op, int a, int b);
 };
 
 #endif
