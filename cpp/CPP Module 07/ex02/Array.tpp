@@ -1,5 +1,5 @@
 #ifndef ARRAY_TPP // .tpp file is basically .cpp file but for templates
-#define ARRAT_TPP
+#define ARRAY_TPP
 
 #include "Array.hpp"
 
@@ -58,7 +58,7 @@ Array<T> &Array<T>::operator= (const Array &obj)
 	// 	return (*this);
 	this->array = new T[obj.size()]; // size func needs to be const so compiler guarantees it will not change obj
 	this->arrSize = obj.size();
-	for (unsigned int i; i < this->arrSize; i++)
+	for (unsigned int i = 0; i < this->arrSize; i++)
 		this->array[i] = obj.array[i];
 	return (*this);
 }
