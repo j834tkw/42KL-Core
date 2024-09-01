@@ -7,7 +7,8 @@
 #include <cstdlib>
 #include <ctime>
 
-template <typename arrAddr, typename arrLen, typename func>	void	iter(arrAddr *arr, arrLen len, func function(arrAddr&))
+template <typename arrAddr, typename arrLen, typename func>
+void	iter(arrAddr *arr, arrLen len, func function(arrAddr&))
 {
 	for (int i = 0; i < len; i++)
 		function(arr[i]);

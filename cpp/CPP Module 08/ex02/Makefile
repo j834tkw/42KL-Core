@@ -1,10 +1,10 @@
-SRC			= main.cpp Span.cpp
+SRC			= main.cpp
 
 CC			= g++
 RM			= rm -rf
 CFLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
-NAME		= span
+NAME		= mutantstack
 
 all:	${NAME}
 

@@ -13,7 +13,7 @@ class Span
 {
 	private:
 		std::vector<int>	container;
-		unsigned int 		size;
+		unsigned int 		maxSize;
 
 	public:
 		Span();

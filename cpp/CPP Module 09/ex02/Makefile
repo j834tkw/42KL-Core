@@ -1,10 +1,10 @@
-SRC			= main.cpp Span.cpp
+SRC			= main.cpp PmergeMe.cpp
 
 CC			= g++
 RM			= rm -rf
 CFLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
-NAME		= span
+NAME		= PmergeMe
 
 all:	${NAME}
 
