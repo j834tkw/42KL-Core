@@ -34,5 +34,6 @@ typename std::stack<T>::container_type::iterator MutantStack<T>::begin()
 template <typename T>
 typename std::stack<T>::container_type::iterator MutantStack<T>::end()
 {
+	// .end() returns an iterator which is the past-the-end value for the container
 	return this->c.end();
 }

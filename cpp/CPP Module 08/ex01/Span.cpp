@@ -73,7 +73,10 @@ unsigned int	Span::shortestSpan(void)
 	 */
 	for (std::vector<int>::iterator iter_a = container.begin(); iter_a < container.end() - 1; iter_a++)
 		for (std::vector<int>::iterator iter_b = iter_a + 1; iter_b < container.end(); iter_b++)
-			if (abs((*iter_a) - (*iter_b)) < difference)
-				difference = abs((*iter_a) - (*iter_b));
+		{
+			unsigned int tmp = abs((*iter_a) - (*iter_b));
+			if (tmp < difference)
+				difference = tmp;
+		}
 	return (difference);
 }
