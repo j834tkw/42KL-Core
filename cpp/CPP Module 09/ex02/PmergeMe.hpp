@@ -18,8 +18,9 @@ class PmergeMe
 		std::vector<int>	vec;
 		std::list<int>		lst;
 		bool				has_extra;
-		struct timeval		time_taken_vec;
-		struct timeval		time_taken_lst;
+		double				time_taken_vec;
+		double				time_taken_lst;
+		bool				done_sorting;
 
 	public:
 		PmergeMe();
@@ -31,12 +32,15 @@ class PmergeMe
 		const std::vector<int>	&getVec(void);
 		const std::list<int>	&getLst(void);
 		const bool				&getHasExtra(void);
-		const struct timeval	&getTimeTakenVec(void);
-		const struct timeval	&getTimeTakenLst(void);
+		const double			&getTimeTakenVec(void);
+		const double			&getTimeTakenLst(void);
 
 		void initFromCharArr(int argc, char **argv);
 		int jacobsthal(int n);
 		void runFordJohnsons(void);
+		void printResults(void);
+		bool isVecSorted(void);
+		bool isLstSorted(void);
 
 		std::vector<std::pair<int, int> > mergeSortPairsVector(std::vector<std::pair<int, int> > pairs);
 		std::vector<std::pair<int, int> > mergePairsVector(std::vector<std::pair<int, int> > left, std::vector<std::pair<int, int> > right);
@@ -51,7 +55,23 @@ class PmergeMe
 			public:
 				const char *what() const throw()
 				{
-					return ("There is a non-digit in the given arguments!");
+					return ("Error: There is a non-digit in the given arguments!");
+				}
+		};
+		class NotRunProperlyException : public std::exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return ("Error: Please run the sorting algorithms using runFordJohnsons() first!");
+				}
+		};
+		class NotSortedException : public std::exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return ("Error: Vector or list is not sorted!");
 				}
 		};
 };
@@ -68,6 +88,7 @@ std::ostream &operator << (std::ostream &outs, std::list<int> lst);
 		- Vector can use iterator += , but list cannot
 		- Vector can use *(iterator + 1), but list cannot
 	The code has been changed such that vector and list both uses the same code, the only difference is vector/list
+	Man if only templates could be used
 */
 
 #endif

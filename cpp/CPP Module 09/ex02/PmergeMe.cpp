@@ -9,6 +9,7 @@ using std::atoi;
 
 PmergeMe::PmergeMe()
 {
+	done_sorting = false;
 }
 
 PmergeMe::PmergeMe(const PmergeMe &obj)
@@ -53,14 +54,32 @@ const bool	&PmergeMe::getHasExtra(void)
 	return (has_extra);
 }
 
-const struct timeval &PmergeMe::getTimeTakenVec(void)
+const double &PmergeMe::getTimeTakenVec(void)
 {
 	return (time_taken_vec);
 }
 
-const struct timeval &PmergeMe::getTimeTakenLst(void)
+const double &PmergeMe::getTimeTakenLst(void)
 {
 	return (time_taken_lst);
+}
+
+std::ostream &operator << (std::ostream &outs, vector<int> vec)
+{
+	vector<int>::iterator it = vec.begin();
+
+	while (it != vec.end())
+		outs << *it++ << " ";
+	return (outs);
+}
+
+std::ostream &operator << (std::ostream &outs, std::list<int> lst)
+{
+	std::list<int>::iterator it = lst.begin();
+
+	while (it != lst.end())
+		outs << *it++ << " ";
+	return (outs);
 }
 
 void PmergeMe::initFromCharArr(int argc, char **argv)
@@ -89,6 +108,8 @@ void PmergeMe::initFromCharArr(int argc, char **argv)
 		lst.push_back(*begin);
 		++begin;
 	}
+
+	done_sorting = false;
 }
 
 int	PmergeMe::jacobsthal(int n)
@@ -100,12 +121,55 @@ int	PmergeMe::jacobsthal(int n)
 	return (jacobsthal(n - 1) + (2 * jacobsthal(n - 2)));
 }
 
+bool PmergeMe::isVecSorted(void)
+{
+	for (vector<int>::iterator it = vec.begin(); it != vec.end() - 1; it++)
+		if (*it > *(it + 1))
+			return (false);
+			
+	return (true);
+}
+
+bool PmergeMe::isLstSorted(void)
+{
+	for (std::list<int>::const_iterator it = lst.begin(), next_it = ++lst.begin(); next_it != lst.end(); ++it, ++next_it)
+        if (*it > *next_it)
+            return (false);
+
+    return (true);
+}
+
 void PmergeMe::runFordJohnsons(void)
 {
 	struct timeval start;
 	struct timeval end;
 
+	gettimeofday(&start, NULL);
+	fordJohnsonVector();
+	gettimeofday(&end, NULL);
+	time_taken_vec = (end.tv_sec - start.tv_sec) * 1000000.0 + (end.tv_usec - start.tv_usec);
 
+	gettimeofday(&start, NULL);
+	fordJohnsonList();
+	gettimeofday(&end, NULL);
+	time_taken_lst = (end.tv_sec - start.tv_sec) * 1000000.0 + (end.tv_usec - start.tv_usec);
+
+	done_sorting = true;
+}
+
+void PmergeMe::printResults(void)
+{
+	if (done_sorting == false)
+		throw (NotRunProperlyException());
+
+	if (isVecSorted() == false || isLstSorted() == false)
+		throw (NotSortedException());
+	
+	cout << "Before: " << og << endl;
+	cout << "After (std::vector): " << vec << endl;
+	cout << "After (std::list)  : " << lst << endl;
+	cout << "Time to process a range of 5 elements with std::vector: " << time_taken_vec << " us" << endl;
+	cout << "Time to process a range of 5 elements with std::list: " << time_taken_lst << " us" << endl;
 }
 
 /*	// =================================================================
