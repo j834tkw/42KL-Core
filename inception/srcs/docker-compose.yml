@@ -40,10 +40,14 @@ services:
 
 volumes:
   mariadb:
+    # keep data on host's local filesystem (mounting)
     driver: local
     driver_opts:
+      # no physical disk partition linked to the mount
       type: none
+      # use a bind mount
       o: bind
+      # host directory path to be mounted as volume
       device: /home/justyn/data/mariadb
 
   wordpress:
