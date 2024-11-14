@@ -5,7 +5,7 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y nginx openssl
 
 # move and set permissions for init script
-COPY ./conf/ngx-init.sh ./ngx-init.sh
+COPY ./tools/ngx-init.sh ./ngx-init.sh
 RUN chmod +x ngx-init.sh
 
 # move nginx.conf
