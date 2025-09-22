@@ -92,7 +92,7 @@ Projects are grouped by **Circles** (levels), showing my progress and learnings 
 ---
 
 ## 🟢 Circle 05
-> Introduction to system administration and network-related projects.
+> Introduction to system administration and network-related projects, as well as C++ and OOP
 
 ### ✅ Projects
 - **[CPP Modules](./Circle06/cpp)**  
