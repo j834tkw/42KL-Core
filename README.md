@@ -39,7 +39,7 @@ Projects are grouped by **Circles** (levels), showing my progress and learnings 
   Recreation of the standard `printf` function in C.  
   *Skills: Variadic functions, formatted output.*
 
-- **[Born2beRoot](./Circle01/Born2beRoot)**
+- **[Born2beRoot](./Circle01/Born2beRoot)**  
   A system administration project where you set up and configure a Linux virtual machine
   *Skills: Linux, virtualization, shell scripting, security configurations, system monitoring, server setup.*
 
@@ -85,7 +85,7 @@ Projects are grouped by **Circles** (levels), showing my progress and learnings 
   A simple 3D raycasting game inspired by Wolfenstein 3D.  
   *Skills: Raycasting, graphics programming, event handling.*
 
-- **Netpractice**
+- **Netpractice**  
   A series of exercises where you configure subnets, Ip and routing tables to connect devices over the internet.  
   *Skills: Networking basics, IP addressing, subnetting, routing.*
 
