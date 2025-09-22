@@ -95,7 +95,7 @@ Projects are grouped by **Circles** (levels), showing my progress and learnings 
 > Introduction to system administration and network-related projects, as well as C++ and OOP
 
 ### ✅ Projects
-- **[CPP Modules](./Circle06/cpp)**  
+- **[CPP Modules](./Circle05/cpp)**  
   Series of projects covering C++ concepts (classes, inheritance, polymorphism, templates).  
   *Skills: OOP, memory management, C++ STL.*
 
