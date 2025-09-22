@@ -75,7 +75,7 @@ bool btcExchange::isValidDate(std::string date, int useCase)
 
 bool btcExchange::isValidValue(std::string value, int useCase)
 {
-	int valueC;
+	double valueC;
 
 	if (value == "")
 	{
@@ -93,7 +93,12 @@ bool btcExchange::isValidValue(std::string value, int useCase)
 			cerr << "Error: too large a number." << endl;
 		return (0);
 	}
-	
+	if (valueC > 2147483647)
+	{
+		if (useCase)
+			cerr << "Error: too large a number." << endl;
+		return (0);
+	}
 	if (valueC < 0)
 	{
 		if (useCase)

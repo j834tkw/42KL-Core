@@ -2,7 +2,7 @@ SRC			= main.cpp RPN.cpp
 
 CC			= g++
 RM			= rm -rf
-CFLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
+CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 NAME		= RPN
 

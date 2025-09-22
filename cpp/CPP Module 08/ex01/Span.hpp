@@ -23,6 +23,7 @@ class Span
 		~Span();
 
 		void			addNumber(int const newNumber);
+		void			addNumber(std::vector<int> newNumber);
 		unsigned int	shortestSpan(void);
 		unsigned int	longestSpan(void);
 };

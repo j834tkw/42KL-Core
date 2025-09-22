@@ -40,6 +40,16 @@ void	Span::addNumber(int const newNumber)
 	container.push_back(newNumber);
 }
 
+void	Span::addNumber(std::vector<int> newNumber)
+{
+	if (container.size() + newNumber.size() > maxSize)
+	{
+		throw std::out_of_range("Max number of elements reached");
+	}
+	for (std::vector<int>::iterator it = newNumber.begin(); it != newNumber.end(); it++)
+		container.push_back(*it);
+}
+
 unsigned int Span::longestSpan(void)
 {
 	if (container.size() < 2)
