@@ -85,7 +85,7 @@ Projects are grouped by **Circles** (levels), showing my progress and learnings 
   A simple 3D raycasting game inspired by Wolfenstein 3D.  
   *Skills: Raycasting, graphics programming, event handling.*
 
-- **[Netpractice]**
+- **Netpractice**
   A series of exercises where you configure subnets, Ip and routing tables to connect devices over the internet.  
   *Skills: Networking basics, IP addressing, subnetting, routing.*
 
